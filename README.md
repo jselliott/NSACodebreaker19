@@ -1,10 +1,16 @@
 # NSA Codebreaker Challenge 2019
 
-This is a repository of scripts and writeups for the NSA Codebreaker Challenge for 2019.
+This is a repository of scripts and writeups for the NSA Codebreaker Challenge for 2019. 
+
+*Disclaimer: I am not affiliated with the NSA in anyway and don't claim to represent them at all in these writeups or videos. Just a fellow participant who enjoys sharing the learning opportunities with others!*
 
 From the challenge page:
 
 "The 2019 Codebreaker Challenge consists of a series of tasks that are worth a varying amount of points based upon their difficulty. All tasks will become available immediately once the Challenge goes live and can be solved in any order, though there may be some dependencies between tasks. The point value associated with each task is based on relative difficulty and schools will be ranked according to the total number of points accumulated by their students. It is still recommended to solve tasks in order since the tasks flow with the storyline, but that is not a requirement. Solutions may be submitted at any time for the duration of the Challenge. Good luck!"
+
+# Writeups
+
+Each subfolder contains a detailed writeup for its resepctive task as well as any scripts or other files that are used to complete it.
 
 # Walkthrough Videos
 
