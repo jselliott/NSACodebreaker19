@@ -18,7 +18,7 @@ APK files are actually zip archives containing some metadata about the app along
 
 To get the certificate information about the apk, you can use the apksigner utility that comes with Android Studio (your path to it may vary if it is not already in your PATH variable). Then command will be:
 
-* apksigner verify --print-certs terrorTime1.apk
+* apksigner verify --print-certs terrorTime.apk
 
 This will print the sha256 hash of the certificate as well as the common name (Starts with CN=)
 
