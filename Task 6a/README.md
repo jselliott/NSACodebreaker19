@@ -14,7 +14,9 @@ If you recall the message JSON that you submitted for task 5, you'll notice that
 
 So the first thing we're going to need to know is how to get the public key for a user in the same way that the app does. For this, we can log in to Spark as the top leader and access their v-card with the following command in a raw packet:
 
-`<iq id='v1' type='get'><vCard xmlns='vcard-temp'/></iq>`
+    <iq id='v1' type='get'>  
+    <vCard xmlns='vcard-temp'/>  
+    </iq>
 
 If you look in the debugger window, you will see the response to your query which contains the v-card of the user and a DESC element that contains their public key. So what happens if we remove it?
   
@@ -25,11 +27,11 @@ If the public key is removed from the user's v-card, then a future message that 
 
 This can be done by sending the following raw packet to the server:
 
-`<iq id="v1" type="set">
-  <vCard xmlns="vcard-temp">
+    <iq id="v1" type="set">
+    <vCard xmlns="vcard-temp">
     <DESC></DESC>
-  </vCard>
-</iq>`
+    </vCard>
+    </iq>`
 
 As soon as they log back in, the top leader's app will add their public key back to the server and it will be like nothing happened. However, during this interim time, we can send spoofed messages that they will not be able to see. And responses from other users will not be viewable either because they will not be signed with their public key.
 
@@ -49,15 +51,29 @@ Now we just need to recover the JSON of the message in the same way as Task 5.
 
 Once you get logged in as the top leader on Spark, you can send another archive request:
 
-`<iq type='get'>
-<query xmlns='urn:xmpp:mam:tmp' queryid='f27' />
-</iq>`
+    <iq type='get'>  
+    <query xmlns='urn:xmpp:mam:tmp' queryid='f27' />  
+    </iq>
 
 Once you execute this command, you can click on the debugger window and you'll see a log of packets with the title "Message Received". If you look at the contents of those packets there is a body tag containing some json like this (truncated for readability):
 
 `{"messageKey":{"cFcXLsCRzEZTivhekA7P8X1CXHd1H7P+KXR0bdZ5TMo=":"D+7qGQOEoZUbuHHg2XQ...","ubPtHT\/2pPy0mG8YS2I5QHiDhOQuHR+8X+yTLpasrHA=":"ALoRtoATD1AuTJPVOjlYdFM7u...","RhTKbmuEB\/FJQ5b3Ima91tNpyGIcszYUIx3i1YFhWyo=":"FUbja1I2LqjXwdS0r...","fWrGcOPzdcfTdTxPpEaD\/Fk7viuDhs6q2IELGYku5AU=":"AGQ76Jy7x9Uv5RsjJ7T..."},"message":{"iv":"W3qN6vu2YYoOClS3Lcrsiw==","msg":"VClP6RblpoUAQS8T..."},"messageSig":"T4GQaB2hECy54L7v2N5f0BHsozddGEnVk6w21JqvKzE="}`
 
 If you select the very last message and copy the JSON from the message body, you can submit it for credit along with the username of the cell leader to which you sent the message.
+
+## Cleanup (Required for 6b)
+
+In order to continue with 6b, we'll need to set the leader's public key back to the original value. All you need to do is send the following request after logging into spark as them, with their original public key that you backed up:
+
+    <iq id="v1" type="set">
+    <vCard xmlns="vcard-temp">
+    <DESC>----BEGIN PUBLIC KEY----
+    (their original key)
+    ----END PUBLIC KEY----
+    </DESC>
+    </vCard>
+    </iq>
+
 
 ## Walkthrough Video
 https://www.youtube.com/watch?v=QiBxLU8mjn8
