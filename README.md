@@ -2,7 +2,7 @@
 
 This is a repository of scripts and writeups for the NSA Codebreaker Challenge for 2019. 
 
-*Disclaimer: I am not affiliated with the NSA in anyway and don't claim to represent them at all in these writeups or videos. Just a fellow participant who enjoys sharing the learning opportunities with others!*
+*Disclaimer: I am not affiliated with the NSA in any way and don't claim to represent them at all in these writeups or videos. Just a fellow participant who enjoyed the challenge and enjoys sharing the learning opportunities with others!*
 
 From the challenge page:
 
