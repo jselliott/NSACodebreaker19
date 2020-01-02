@@ -17,7 +17,7 @@ You can get the sha-256 hash of the apk file by using the following commands dep
 * sha256sum terrorTime.apk (Linux/OSX)
 * Get-FileHash terrorTime.apk (Windows PowerShell)
 
-To retrieve the client credentials, you can open the README file and you'll see two test accounts formatted like <user>--vhost-<number>@terrortime.app and a client secret. The submission should be formatted like:
+To retrieve the client credentials, you can open the README file and you'll see two test accounts formatted like user--vhost-number@terrortime.app and a client secret. The submission should be formatted like:
   
   *test1--vhost-1234@terrortime.app:secret1*
   
