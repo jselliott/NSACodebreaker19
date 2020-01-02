@@ -24,5 +24,7 @@ To retrieve the client credentials, you can open the README file and you'll see 
   *test2--vhost-1234@terrortime.app:secret2*
 
 ## Walkthrough Video
+https://www.youtube.com/watch?v=SgESdA6BrDY
 
 [![NSA Codebreaker Challenge 2019 - Task 1-3 Solutions](https://img.youtube.com/vi/SgESdA6BrDY/0.jpg)](https://www.youtube.com/watch?v=SgESdA6BrDY)
+
