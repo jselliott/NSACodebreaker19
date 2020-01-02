@@ -10,7 +10,7 @@ Analysts found TerrorTime installed on a device that was taken from a terrorist 
 
 ## Walkthrough
 
-For this task, we are provided with an SQLite database that is taken from the device of an arrested terrorist. You can open it by using a databse browser like DB Browser for SQLite (https://sqlitebrowser.org/). In the "Clients" table, you will see two columns, xsip and asip, that contain the domain names of the XMPP and OAUTH servers:
+For this task, we are provided with an SQLite database that is taken from the device of an arrested terrorist. You can open it by using a database browser like DB Browser for SQLite (https://sqlitebrowser.org/). In the "Clients" table, you will see two columns, xsip and asip, that contain the domain names of the XMPP and OAUTH servers:
 
 * chat.terrortime.app
 * register.terrortime.app
