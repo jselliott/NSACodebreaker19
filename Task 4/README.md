@@ -27,7 +27,7 @@ Right-click on this file and click upload, then you can select clientDB.db file 
 
 If you open the clientDB.db file in your SQLite Browser then you can see the username of the arrested terrorist in the cid field (which stands for Client ID). However, the pin is a little trickier. If you look at the checkpin field, you'll see a blob of hex bytes that appear to be an encoded form of the 6-digit pin. In this case, it turns out that the field contains a SHA-256 hash of the user's pin.
 
-Since there are a limited number of 6-digit pins possible, we can iterate through all of them with a simple python script, generate the SHA-256 hash and compare it to the bytes from the DB. When we find a match, then the 6-digit user pin will be revealed. (See pin.py)
+Since there are a limited number of 6-digit pins possible, we can iterate through all of them with a simple python script, generate the SHA-256 hash and compare it to the bytes from the DB. When we find a match, then the 6-digit user pin will be revealed. (See [pin.py](pin.py))
 
 Once we have the username and pin, we can put them into the emulator and log in as the terrorist from task 3.
 
