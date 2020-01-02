@@ -25,7 +25,7 @@ After installing it, you can decompile the program with a command:
 This python file reveals some important details about the OAUTH protocol that is used by the app. Most notably, that the tokens that are submitted to the server are checked to verify that they are not expired, have the "chat" scope, and are of the type "access_token". However, they do not actually check to verify that the **user** of the token matches the user that we are trying to log in as. This means that once a token is generated, it can be used to log in to the XMPP server by **any** user for the next hour. These tokens can be obtained by:
 
 * Logging into the app and checking LogCat in android studio, which shows the access token.
-* Using token.py in this repo to simulate the app login and quickly generate new tokens.
+* Using [token.py](token.py) to simulate the app login and quickly generate new tokens.
 
 Rather than deal with any kind of man-in-the-middle attacks, when interacting with the XMPP server for tasks 5 and 6, it is far easier to just use a standalone XMPP client. For this, I used Spark (https://www.igniterealtime.org/projects/spark/). Spark is especially useful because it allows a much higher level of configuration as well as a very powerful debugger and raw packet tool that can be used to craft our requests to the server.
 
