@@ -9,9 +9,15 @@ From the challenge page:
 # Walkthrough Videos
 
 Task 1-3: https://www.youtube.com/watch?v=SgESdA6BrDY
+
 Task 4:  https://www.youtube.com/watch?v=F8ptbLlQWoE
+
 Task 5:  https://www.youtube.com/watch?v=BrsXWLYG1JE
+
 Task 6a: https://www.youtube.com/watch?v=QiBxLU8mjn8
+
 Task 6b: https://www.youtube.com/watch?v=fzGrm2OVizM
+
 Task 7 (Exploit):  https://www.youtube.com/watch?v=dNoKYR8KRd4
+
 Task 7 (Reverse Eng.):  https://www.youtube.com/watch?v=o7o78oQD30w
