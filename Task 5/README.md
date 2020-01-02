@@ -50,9 +50,9 @@ Once you are logged in, you'll may not see any contacts in the menu. You can go 
 
 Once you get logged in as the top leader, you'll see that if you click on a user there are no messages showing. That is because the messages are actually archived on the server by the app and then retreieved when a user logs in. So they are not displayed in the normal message history. In order to retrieve these messages, you can send a custom packet under File -> Send Packet. The command that should be sent it:
 
-`<iq type='get'>
-<query xmlns='urn:xmpp:mam:tmp' queryid='f27' />
-</iq>`
+    <iq type='get'>
+    <query xmlns='urn:xmpp:mam:tmp' queryid='f27' />
+    </iq>
 
 Once you execute this command, you can click on the debugger window and you'll see a log of packets with the title "Message Received". If you look at the contents of those packets there is a body tag containing some json like this (truncated for readability):
 
