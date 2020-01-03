@@ -38,13 +38,13 @@ After downloading spark, you can configure it by doing the following:
 * Set port to 443
 * Check options for Accept All Certificates, Disable Certificate Hostname Verification, and Start Debugger on Startup
 * On the login screen, enter the cell leader username from task 4 (without the domain)
-* Enter the generate token for the password
+* Enter the generated token for the password
 * Enter terrortime.app as the domain
 * Click Login button
 
 ### Identifying the leader
 
-Once you are logged in, you'll may not see any contacts in the menu. You can go to Contacts -> Show Offline Users to show them. You'll see that there is a group called "management" that contains 3 people. One of these is the organization leader, while the other two are cell leaders. You'll also see a group called something like "cell-0". If you begin logging into the other management leaders then you'll find one of them only has a management group and no cell users. This is the user who is the top organization leader that you can submit for credit.
+Once you are logged in, you may not see any contacts in the menu. You can go to Contacts -> Show Offline Users to show them. You'll see that there is a group called "management" that contains 3 people. One of these is the organization leader, while the other two are cell leaders. You'll also see a group called something like "cell-0". If you begin logging into the other management leaders then you'll find one of them only has a management group and no cell users. This is the user who is the top organization leader that you can submit for credit.
 
 ### Archive Retrieval
 
