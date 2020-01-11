@@ -56,7 +56,7 @@ To factor the smallest key, we can use a program like [Yafu](https://github.com/
 
 Putting this private key into the reversal algorithm described above, we are able to find the private key for the 512 bit key, then repeat that again for the 1024 bit key, and then finally for the 2048 bit TerrorTime user key.
 
-See [TerrorCrack.py](TerrorCrack.py) for an implementation of this cracking process.
+See [TerrorCrack.py](TerrorCrack.py) for an implementation of this cracking process. Requires python 2.7.x and pycrypto library.
 
 ### Database Encryption
 
