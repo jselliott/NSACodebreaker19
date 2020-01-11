@@ -6,7 +6,7 @@ Analysts found TerrorTime installed on a device that was taken from a terrorist 
 
 ## Provided Files
 
-* Database (clientDB.db)
+* [Database (clientDB.db)](clientDB.db)
 
 ## Walkthrough
 
