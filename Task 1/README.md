@@ -6,7 +6,7 @@ There are many challenges that we will need to overcome in order to exploit Terr
 
 ## Provided Files
 
-* Captured Traffic (terrortime.pcapng)
+* [Captured Traffic (terrortime.pcapng)](terrortime.pcapng)
 
 ## Walkthrough
 
