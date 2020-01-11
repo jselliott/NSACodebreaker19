@@ -8,7 +8,7 @@ Through other intelligence means, we know that the arrested terrorist is a membe
 
 ## Provided Files
 
-* Authentication Program (auth_verify.pyc)
+* [Authentication Program (auth_verify.pyc)](auth_verify.pyc)
 
 ## Walkthrough
 
