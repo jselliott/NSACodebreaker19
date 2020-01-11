@@ -8,10 +8,6 @@ The TerrorTime APK file contains metadata that describes various security proper
 1. The SHA256 hash of the Code Signing Certificate
 1. The Common Name of the Certificate Signer
 
-## Provided Files
-
-* Captured Traffic (terrortime.pcapng)
-
 ## Walkthrough
 
 APK files are actually zip archives containing some metadata about the app along with various resources and the compiled code itself. Change the file extension to .zip and you can extract it using your archive utility of choice. Then open AndroidManifest.xml and you'll see the permissions that are required near the top (They are the all-caps strings that start with android.permission.).
