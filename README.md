@@ -10,7 +10,7 @@ From the challenge page:
 
 # Writeups
 
-Each subfolder contains a detailed writeup for its resepctive task as well as any scripts or other files that are used to complete it.
+Each subfolder contains a detailed writeup for its respective task as well as any scripts or other files that are used to complete it.
 
 # Walkthrough Videos
 
