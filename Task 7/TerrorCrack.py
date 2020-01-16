@@ -1,3 +1,4 @@
+from __future__ import print_function
 from Crypto.PublicKey import RSA
 from Crypto.Util.number import long_to_bytes
 from Crypto.Protocol.KDF import PBKDF2
@@ -35,6 +36,11 @@ Setup:
 - Read messages and destroy terrorist plans!
 
 """
+
+try:
+    long
+except NameError:
+    long = int
 
 #256-bit factors (ENTER FACTORS FROM YAFU HERE)
 P = 0
@@ -74,7 +80,7 @@ class KeyRecover:
 
     def recover(self,target):
 
-        print "\nRecovering Modulus: \t"+target
+        print("\nRecovering Modulus: \t"+target)
 
         #Target public key
         T = int(target,16)
@@ -83,12 +89,12 @@ class KeyRecover:
         mid = len(target) // 2
         part1 = target[:mid]
 
-        print "First Half: \t\t\t"+str(part1)
+        print("First Half: \t\t\t"+str(part1))
 
         part1 = int(part1,16)
 
-        print "R1: \t\t\t\t\t"+str(self.R1)
-        print "R2: \t\t\t\t\t"+str(self.R2)
+        print("R1: \t\t\t\t\t"+str(self.R1))
+        print("R2: \t\t\t\t\t"+str(self.R2))
 
         for x in range(2):
 
@@ -113,8 +119,8 @@ class KeyRecover:
                         #If it is evenly divisible from T then we found it
                         if T%prime == 0:
 
-                            print "Recovered P: \t\t\t"+str(prime)
-                            print "Recovered Q: \t\t\t"+str(T//prime)
+                            print("Recovered P: \t\t\t"+str(prime))
+                            print("Recovered Q: \t\t\t"+str(T//prime))
                             return prime,T//prime,self.get_private_key_from_p_q_e(prime,T//prime,self.e)
 
                         #Else increment key1
@@ -180,7 +186,7 @@ try:
     f = open("keygen","rb")
 
 except IOError:
-    print "Error: You must put keygen in the same folder as script."
+    print("Error: You must put keygen in the same folder as script.")
     exit()
 
 # Extract key values from keygen executable
@@ -212,56 +218,56 @@ R2_1024 = b64i(R2_1024)
 
 
 if P == 0 or Q == 0:
-    print "You must manually factor the 256-bit public key for this task."
-    print "Please download Yafu and factor the number below with the command:\n"
-    print "yafu-x64 factor(" + str(PK_256.n)+")"
-    print "\n\nOnce you have the factors, enter them for P and Q in this script and rerun it."
+    print("You must manually factor the 256-bit public key for this task.")
+    print("Please download Yafu and factor the number below with the command:\n")
+    print("yafu-x64 factor(" + str(PK_256.n)+")")
+    print("\n\nOnce you have the factors, enter them for P and Q in this script and rerun it.")
     exit()
 
 if XNAME=="" or PIN == "":
-    print "Please enter the target username and the pin from task 4 at the top of the script and rerun it."
+    print("Please enter the target username and the pin from task 4 at the top of the script and rerun it.")
     exit()
 
 #Get the initial private key for the 256-bit key
 rec = KeyRecover(0,0,0,0)
 D = rec.get_private_key_from_p_q_e(P,Q,65537)
 
-print "First Private Key: "+str(D)
+print("First Private Key: "+str(D))
 
-print "\n--- Recovering 512 Bit RSA Key ---"
+print("\n--- Recovering 512 Bit RSA Key ---")
 
 rec = KeyRecover(R1_256,R2_256,PK_256.n,D,512)
 P,Q,D = rec.recover('{:x}'.format(int(PK_512.n)))
-print "Private Key: \t\t\t"+str(D)
+print("Private Key: \t\t\t"+str(D))
 
-print "\n--- Recovering 1024 Bit RSA Key ---"
+print("\n--- Recovering 1024 Bit RSA Key ---")
 
 rec = KeyRecover(R1_512,R2_512,PK_512.n,D,1024)
 P,Q,D = rec.recover('{:x}'.format(int(PK_1024.n)))
-print "Private Key: \t\t\t"+str(D)
+print("Private Key: \t\t\t"+str(D))
 
 
 try:
     f = open("target.key","rb")
 
 except IOError:
-    print "Error: You must put target.key (containing target public key) in the same folder as script."
+    print("Error: You must put target.key (containing target public key) in the same folder as script.")
     exit()
 
 PK_2048_PEM = f.read()
 PK_2048 = RSA.importKey(PK_2048_PEM)
 
-print "\n--- Recovering Leader Key ---"
+print("\n--- Recovering Leader Key ---")
 
 T = '{:x}'.format(int(PK_2048.n))
 
 rec = KeyRecover(R1_1024,R2_1024,PK_1024.n,D,2048)
 P,Q,D = rec.recover(T)
-print "Private Key: \t\t\t"+str(D)
-print "\n\n"
+print("Private Key: \t\t\t"+str(D))
+print("\n\n")
 
 if D is None:
-    print "Sorry, the program failed to crack this key. :("
+    print("Sorry, the program failed to crack this key. :(")
     exit()
 
 RSAKey = RSA.construct((int(T,16),long(65537),D,P,Q))
@@ -269,15 +275,15 @@ RSAKey = RSA.construct((int(T,16),long(65537),D,P,Q))
 FinalKey = RSAKey.exportKey()
 #print FinalKey.encode("hex")
 
-print "\nCracked user key!"
+print("\nCracked user key!")
 
-print "Patching clientDB.db...."
+print("Patching clientDB.db....")
 
 try:
     conn = sqlite3.connect('clientDB.db')
 
 except sqlite3.DatabaseError:
-    print "Error: You must put clientDB.db in the same folder as script."
+    print("Error: You must put clientDB.db in the same folder as script.")
     exit()
 
 encodedKey = encryptClientBytes(PIN,FinalKey)
@@ -293,8 +299,8 @@ try:
     conn.close()
 
 except sqlite3.DatabaseError:
-    print "Error: Something went wrong while patching the DB. You may have to put in the encoded private key bytes yourself (below):"
-    print "\n\n"+encodedKey.encode("hex")
+    print("Error: Something went wrong while patching the DB. You may have to put in the encoded private key bytes yourself (below):")
+    print("\n\n"+encodedKey.encode("hex"))
     exit()
 
-print "\n** All done! Upload the patched database to your emulator and log in to view this user's messages. **"
+print("\n** All done! Upload the patched database to your emulator and log in to view this user's messages. **")
