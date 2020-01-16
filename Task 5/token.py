@@ -1,3 +1,4 @@
+from __future__ import print_function
 import urllib2
 import base64
 import json
@@ -20,5 +21,5 @@ r = urllib2.urlopen(req,context=ctx)
 
 resp = json.loads(r.read())
 
-print "\n\nGot Access Token:\t\t"+resp['access_token']+"\n\n"
-print "You can use this as the password to log into Spark client for task 6a and 6b.\nIt has a 1-hour life, so if you find you aren't able to log in, then run this script again to get a new one."
+print("\n\nGot Access Token:\t\t"+resp['access_token']+"\n\n")
+print("You can use this as the password to log into Spark client for task 6a and 6b.\nIt has a 1-hour life, so if you find you aren't able to log in, then run this script again to get a new one.")

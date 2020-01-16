@@ -1,3 +1,4 @@
+from __future__ import print_function
 # uncompyle6 version 3.4.0
 # Python bytecode 2.7 (62211)
 # Decompiled from: Python 2.7.16 (default, Apr 12 2019, 15:32:52) 
@@ -41,7 +42,7 @@ def main(argv=None):
     if argv is None:
         argv = sys.argv
     if len(sys.argv) < 2:
-        print >> sys.stderr, 'Usage: %s <token> [url]' % sys.argv[0]
+        print('Usage: %s <token> [url]' % sys.argv[0], file=sys.stderr)
         return 2
     else:
         token = sys.argv[1]
